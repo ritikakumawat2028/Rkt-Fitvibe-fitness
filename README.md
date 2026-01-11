@@ -73,6 +73,10 @@ JWT (JSON Web Token)
 
 Role-based access (Admin / User)
 
+❤️Home Page
+<img width="1877" height="915" alt="image" src="https://github.com/user-attachments/assets/bb1945f7-9cc9-4406-bd16-a06aac3b9641" />
+
+
 ✨Login & Registration Page
 
 <img width="1585" height="907" alt="image" src="https://github.com/user-attachments/assets/1c193e3b-c4e3-4d5c-8bdf-71bad4955774" />
