@@ -1,0 +1,66 @@
+/* src/admin/components/DashboardTableOverview.css */
+
+:root { --grad: linear-gradient(135deg, #6c7bff, #8a2be2); --muted: #7a7f8c; --text: #2d2f36; }
+
+.table-overview h3 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.table-overview h3::before {
+  content: '';
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--grad);
+  display: inline-block;
+}
+
+.table-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid #eef0f5;
+  border-radius: 12px;
+  background: #fff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.table-item:hover { box-shadow: 0 8px 22px rgba(17,24,39,0.06); transform: translateY(-1px); }
+
+.table-details h4 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.table-details p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.view-button {
+  background: var(--grad);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+.view-button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.view-button svg { width: 16px; height: 16px; }

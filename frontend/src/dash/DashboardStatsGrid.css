@@ -1,0 +1,68 @@
+/* src/admin/components/DashboardStatsGrid.css */
+
+:root {
+  --stat-radius: 16px;
+  --stat-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+  --grad: linear-gradient(135deg, #6c7bff, #8a2be2);
+  --text: #2d2f36;
+  --muted: #7a7f8c;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 110px;
+  background-color: #ffffff;
+  border-radius: var(--stat-radius);
+  box-shadow: var(--stat-shadow);
+  padding: 22px;
+}
+
+/* Gradient icon tile like your screenshot */
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: var(--grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 60px;
+}
+.stat-icon svg {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Hover */
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.10);
+}

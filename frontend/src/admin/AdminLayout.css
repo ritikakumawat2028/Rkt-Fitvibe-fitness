@@ -1,0 +1,85 @@
+/* src/admin/components/AdminLayout.css */
+
+:root {
+  --admin-bg: #f0f2f5;
+  --admin-surface: #ffffff;
+  --admin-muted: #777;
+  --admin-text: #333;
+  --admin-primary: #6c7bff;
+  --admin-primary-2: #8a2be2;
+  --admin-success: #28a745;
+  --admin-danger: #e74c3c;
+  --admin-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Light grey page background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content-wrapper {
+  flex-grow: 1; /* Takes up remaining space */
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+/* This is the same logic from AdminDashboard.css, moved here */
+.main-content-wrapper.sidebar-open {
+  margin-left: 250px; /* Sidebar width */
+}
+
+.main-content-wrapper.sidebar-closed {
+  margin-left: 60px; /* Collapsed sidebar width */
+}
+
+.page-content-area {
+  padding: 24px 32px; /* Padding for the main content of all pages */
+  flex-grow: 1;
+  max-width: 1200px; /* Center content like dashboard cards/tables */
+  margin: 0 auto;
+}
+
+/* common card & button styles for admin */
+.admin-layout .card {
+  background: var(--admin-surface);
+  border-radius: 12px;
+  box-shadow: var(--admin-shadow);
+  padding: 20px;
+}
+.admin-layout .control-button {
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+.admin-layout .control-button.add-button { background: var(--admin-success); color: #fff; }
+
+/* --- Mobile / Tablet Responsiveness --- */
+@media (max-width: 992px) {
+  .main-content-wrapper.sidebar-open {
+    margin-left: 0; /* No margin when sidebar is open on mobile */
+  }
+  .main-content-wrapper.sidebar-closed {
+    margin-left: 0; /* No margin when sidebar is closed (it's hidden) */
+  }
+
+  /* This selector only shows the overlay on mobile */
+  .sidebar-overlay.mobile-only {
+     display: none;
+  }
+  .sidebar.open + .sidebar-overlay.mobile-only {
+    display: block; /* Show overlay */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99; /* Below sidebar, above header */
+  }
+}
+
+/* Hide mobile-only overlay on desktop */
+@media (min-width: 993px) {
+   .sidebar-overlay.mobile-only {
+      display: none !important;
+   }
+}

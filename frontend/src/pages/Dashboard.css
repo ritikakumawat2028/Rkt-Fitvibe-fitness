@@ -1,0 +1,694 @@
+/* =============================
+   DASHBOARD PAGE STYLING (Simplified)
+   ============================= */
+
+/* --- Overall Page --- */
+.dashboard {
+  padding: 30px; /* Space inside the dashboard edges */
+  font-family: "Poppins", sans-serif; /* Set the font for the page */
+  background-color: #f1f5f9; /* Light grey background for the whole page (Slate 100) */
+  min-height: 100vh; /* Make sure the page is at least the full height of the screen */
+  color: #1e293b; /* Default text color (Slate 800) */
+}
+
+/* ===== Welcome Banner (Fixed Layout) ===== */
+.welcome-banner {
+  /* Richer blue gradient */
+  background: linear-gradient(105deg, #4338ca, #3b82f6, #2dd4bf); /* Indigo -> Blue -> Teal */
+  padding: 34px 36px; /* Adjusted padding slightly */
+  border-radius: 24px;
+  color: #ffffff;
+  /* --- ADDED margin-top --- */
+  /* margin-top: 60px; Adjust this value (e.g., 20px, 40px) as needed */
+  margin-bottom: 40px;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2), 0 6px 6px rgba(59, 130, 246, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Important to contain floated/positioned elements if needed */
+
+  /* --- Core Flexbox Layout --- */
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Push text left, button right */
+  align-items: center; /* Vertically align items */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 15px; /* Space between text block and button when wrapped */
+}
+
+/* Optional subtle texture (Uncomment if desired) */
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-48 50c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48-25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z" fill="%23FFF" fill-opacity="0.05" fill-rule="evenodd"/></svg>');
+  opacity: 0.5;
+  z-index: 0;
+} 
+/* Ensure content is above pseudo-element if used */
+.welcome-banner > * {
+  position: relative;
+  z-index: 1;
+} 
+
+
+.welcome-banner:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.25), 0 10px 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Container for the text content */
+.banner-text-content {
+    flex-grow: 1; /* Allow text to take up available space */
+    min-width: 200px; /* Prevent text from getting too squished */
+}
+
+.welcome-banner h1 {
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.welcome-banner p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 5px 0 0 0;
+  max-width: 600px; /* Prevent text becoming too wide */
+}
+
+.welcome-banner b {
+  font-weight: 600;
+  opacity: 1;
+}
+
+.logout-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #4338ca;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 50px; /* Pill shape */
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* --- Removed Absolute Positioning --- */
+  flex-shrink: 0; /* Prevent button from shrinking */
+  white-space: nowrap; /* Prevent button text wrapping */
+}
+
+.logout-btn:hover {
+  background: #ffffff;
+  color: #312e81;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ===== Layout Grid for the Main Content ===== */
+.fitness-grid {
+  display: grid; /* Use CSS Grid layout */
+  /* Two columns: Left column takes 2 parts of space, right takes 1 part */
+  grid-template-columns: 2fr 1fr;
+  gap: 25px; /* Space between the columns and rows */
+}
+
+/* ===== General Card Styling ===== */
+.card {
+  background: #ffffff; /* White background */
+  border-radius: 22px; /* Rounded corners */
+  padding: 25px; /* Space inside the card */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03); /* Default shadow */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Make cards lift slightly on hover */
+.card:hover {
+  transform: translateY(-4px); /* Move up */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Stronger shadow */
+}
+
+/* Heading inside cards */
+.card h3 {
+  font-size: 1.5rem; /* Heading size */
+  font-weight: 600; /* Medium bold */
+  color: #1e293b; /* Dark text */
+  margin-top: 0; /* Remove default top margin */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+/* Special styling for the gradient card (Today's Workout) */
+.gradient-card {
+  /* Blue gradient background */
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #ffffff; /* White text */
+  /* Blue shadow */
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+/* Make text inside gradient card slightly transparent white */
+.gradient-card h3,
+.gradient-card h4,
+.gradient-card .label {
+    color: rgba(255, 255, 255, 0.9);
+}
+/* Make value text fully white */
+.gradient-card .value {
+    color: #ffffff;
+}
+
+
+/* ===== Stats Section (Total Workouts, Calories, etc.) ===== */
+.stats-grid {
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 15px; /* Space between stat items */
+  margin-top: 10px; /* Space below the "Your Fitness Stats" heading */
+}
+
+.stat {
+  text-align: center; /* Center text inside */
+  background: #f1f5f9; /* Light grey background */
+  border-radius: 16px; /* Rounded corners */
+  padding: 15px 10px; /* Space inside */
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* Smooth hover */
+}
+
+.stat:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03); /* Add shadow on hover */
+}
+
+/* The colored circle icon */
+.stat .icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Make it a circle */
+  margin: 0 auto 10px; /* Center horizontally, space below */
+  display: flex; /* Use Flexbox to center icon inside */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  color: #ffffff; /* White icon color */
+  font-size: 20px; /* Icon size */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow below icon */
+}
+
+/* Specific background colors for icons */
+.icon.red { background: #ef4444; }
+.icon.orange { background: #f97316; }
+.icon.blue { background: #3b82f6; }
+.icon.green { background: #10b981; }
+.icon.gray { background: #94a3b8; } /* For pending achievements */
+
+/* The large number (e.g., total workouts count) */
+.value {
+  font-size: 22px;
+  font-weight: 700; /* Bold */
+  color: #1e293b; /* Dark text */
+}
+
+/* The small text label below the number */
+.label {
+  font-size: 13px;
+  color: #64748b; /* Medium grey text */
+}
+
+/* ===== Achievements Section ===== */
+.achievements {
+  display: flex; /* Arrange items vertically */
+  flex-direction: column;
+  gap: 12px; /* Space between achievements */
+  margin-top: 10px; /* Space below the "Achievements" heading */
+}
+
+.achievement {
+  display: flex; /* Arrange icon and text side-by-side */
+  align-items: center; /* Center items vertically */
+  padding: 12px 15px; /* Space inside */
+  border-radius: 16px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth hover */
+}
+
+/* Slide slightly right on hover */
+.achievement:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Style for completed achievements */
+.achievement.success {
+  background: #dcfce7; /* Light green background */
+  border: 1px solid #a7f3d0;
+  padding-right: 691px; /* Light green border */
+}
+
+/* Style for pending achievements */
+.achievement.pending {
+  background: #f3f4f6; /* Light grey background */
+  border: 1px solid #e5e7eb; 
+  padding-right: 691px;/* Light grey border */
+}
+
+/* Icon within achievement */
+.achievement .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%; /* Circle */
+  margin-right: 15px; /* Space to the right of icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* White icon */
+  font-size: 18px;
+  flex-shrink: 0; /* Prevent icon from shrinking if text is long */
+}
+
+/* Achievement title */
+.achievement .details h4 {
+  font-weight: 600; /* Medium bold */
+  margin-bottom: 4px; /* Space below title */
+  color: #1e293b; /* Dark text */
+  margin-top: 0; /* Remove default top margin */
+}
+
+/* Achievement description */
+.achievement .details p {
+  font-size: 13px;
+  color: #64748b; /* Medium grey text */
+  margin: 0; /* Remove default margins */
+  line-height: 1.4; /* Adjust line spacing */
+}
+
+/* The checkmark for completed achievements */
+/* .check {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #10b981; 
+  border-radius: 50%; 
+  color: #ffffff; 
+  font-size: 16px;
+} */
+
+/* ===== Quick Actions Section ===== */
+.quick-grid {
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 12px; /* Space between buttons */
+  margin-top: 10px; /* Space below "Quick Actions" heading */
+}
+
+/* Individual quick action button */
+.quick-action {
+  display: flex; /* Arrange icon and label vertically */
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  padding: 15px; /* Space inside */
+  border-radius: 16px; /* Rounded corners */
+  border: none; /* No border */
+  cursor: pointer; /* Hand cursor */
+  font-weight: 600; /* Medium bold text */
+  font-size: 14px;
+  transition: all 0.25s ease; /* Smooth hover */
+  text-align: center; /* Center label text if it wraps */
+}
+
+.quick-action i {
+  font-size: 22px; /* Icon size */
+  margin-bottom: 6px; /* Space below icon */
+  transition: transform 0.25s ease; /* Smooth icon hover */
+}
+
+.quick-action:hover {
+  transform: translateY(-4px); /* Move button up slightly */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.03); /* Add shadow */
+}
+
+/* Make icon slightly bigger on button hover */
+.quick-action:hover i {
+    transform: scale(1.1);
+}
+
+/* Specific background and text colors for quick action buttons */
+.quick-action.red { background: #fee2e2; color: #b91c1c; } /* Light red bg, dark red text */
+.quick-action.blue { background: #eff6ff; color: #1e40af; } /* Light blue bg, dark blue text */
+.quick-action.orange { background: #fff7ed; color: #b45309; } /* Light orange bg, dark orange text */
+
+/* ===== Today's Workout Card ===== */
+.workout-grid {
+  display: flex; /* Arrange items side-by-side */
+  justify-content: space-between; /* Space out items */
+  align-items: center; /* Center vertically */
+  flex-wrap: wrap; /* Allow items to wrap on small screens */
+  gap: 15px; /* Space between items if they wrap */
+  margin-bottom: 15px; /* Space below this section, before the button */
+}
+
+.workout-grid h4 {
+  font-weight: 600; /* Medium bold */
+  font-size: 1.1rem;
+  margin: 0 0 5px 0; /* Space below heading */
+}
+
+.workout-grid p {
+  font-size: 0.95rem;
+  opacity: 0.9; /* Slightly transparent */
+  margin: 0; /* Remove default margins */
+  display: flex; /* Align icon and text */
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+}
+.workout-grid p i {
+    font-size: 1rem; /* Icon size */
+}
+
+/* The "Start Workout" or "Completed" button */
+.start-btn {
+  margin-top: 12px; /* Space above the button */
+  width: 100%; /* Make button full width of its container */
+  padding: 12px; /* Space inside */
+  border-radius: 16px; /* Rounded corners */
+  border: none; /* No border */
+  /* Semi-transparent white background */
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff; /* White text */
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease; /* Smooth hover */
+}
+
+/* Style button on hover, but only if it's NOT disabled */
+.start-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.35); /* Slightly less transparent */
+  transform: scale(1.03); /* Slightly enlarge */
+}
+
+/* Style for the button when workout is completed or button is disabled */
+.start-btn.completed,
+.start-btn:disabled {
+  background: #10b981; /* Green background */
+  color: #ffffff; /* White text */
+  cursor: default; /* Default cursor (not hand) */
+  opacity: 0.8; /* Slightly faded */
+  transform: none; /* No hover enlargement */
+}
+
+/* Calorie display section */
+.calories {
+  text-align: center;
+}
+
+/* The calorie number */
+.calories .value {
+  font-size: 30px;
+  font-weight: 700; /* Bold */
+  color: #ffffff; /* White text */
+}
+
+/* The "Calories" label */
+.calories .label {
+  font-size: 12px;
+  opacity: 0.9;
+   color: rgba(255, 255, 255, 0.9); /* Semi-transparent white text */
+}
+
+/* =============================
+   MODAL STYLES (For Nutrition Tips)
+   ============================= */
+.modal-overlay {
+  position: fixed; /* Stay in place even when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  /* Frosted glass effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  display: flex; /* Use Flexbox to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* Make sure it's on top of everything */
+  padding: 20px; /* Add padding for small screens */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.modal-content {
+  background: #ffffff; /* White background */
+  border-radius: 22px; /* Rounded corners */
+  max-width: 550px; /* Maximum width */
+  width: 100%; /* Full width up to max-width */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Strong shadow */
+  box-sizing: border-box;
+  overflow: hidden; /* Hide anything that might stick out */
+  max-height: 90vh; /* Limit height to 90% of screen height */
+  display: flex; /* Use Flexbox for layout inside */
+  flex-direction: column; /* Stack header and details vertically */
+}
+
+/* The scrollable area inside the modal */
+.modal-details {
+  padding: 30px; /* Space inside */
+  overflow-y: auto; /* Allow vertical scrolling if content is too tall */
+  /* --- Custom Scrollbar Styling (Optional) --- */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #10b981 #e5e7eb; /* Thumb and track color */
+}
+/* For Chrome/Safari */
+.modal-details::-webkit-scrollbar { width: 8px; }
+.modal-details::-webkit-scrollbar-track { background: #f3f4f6; border-radius: 10px; }
+.modal-details::-webkit-scrollbar-thumb { background: #10b981; border-radius: 10px; }
+.modal-details::-webkit-scrollbar-thumb:hover { background: #059669; }
+
+
+.modal-details h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #1e293b; /* Dark text */
+}
+.modal-description {
+  font-size: 1rem;
+  color: #64748b; /* Medium grey text */
+  line-height: 1.6; /* Spacing between lines */
+  margin-top: 0;
+  margin-bottom: 25px; /* Space below description */
+}
+
+/* Nutrition Tips List */
+.nutrition-list {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between list items */
+}
+
+.nutrition-list li {
+  font-size: 0.95rem;
+  color: #1e293b; /* Dark text */
+  line-height: 1.6;
+  padding-left: 28px; /* Make space for the custom checkmark */
+  position: relative; /* Needed for positioning the checkmark */
+}
+
+/* Custom checkmark */
+.nutrition-list li::before {
+  content: '✓'; /* The checkmark character */
+  position: absolute; /* Position relative to the list item */
+  left: 0;
+  top: 0;
+  color: #10b981; /* Green color */
+  font-weight: 600; /* Bold */
+  font-size: 1.2rem;
+}
+
+/* Style for bold text within list items */
+.nutrition-list li strong {
+  color: #1e293b; /* Dark text */
+  font-weight: 600; /* Medium bold */
+}
+
+/* "Got it!" button in the modal */
+.done-btn {
+  /* Green gradient background */
+  background: linear-gradient(90deg, #10b981, #059669);
+  color: #ffffff; /* White text */
+  padding: 14px 30px; /* Space inside */
+  margin-top: 30px; /* Space above the button */
+  width: 100%; /* Full width */
+  font-size: 1rem;
+  border: none; /* No border */
+  border-radius: 16px; /* Rounded corners */
+  font-weight: 600; /* Medium bold */
+  cursor: pointer; /* Hand cursor */
+  transition: all 0.3s ease; /* Smooth hover */
+}
+
+.done-btn:hover {
+  transform: translateY(-3px); /* Move up slightly */
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); /* Green shadow */
+}
+
+
+/* =============================
+   Responsive Design Adjustments
+   ============================= */
+
+/* For tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .fitness-grid {
+    grid-template-columns: 1fr; /* Stack the two main columns */
+  }
+
+  .welcome-banner {
+    padding: 25px 30px;
+    /* Flexbox handles wrapping, no need for column direction here */
+    /* align-items: flex-start; /* Align all items top */
+    /* text-align: left; */
+  }
+
+ .banner-text-content {
+     /* Ensure text takes full width potentially when wrapped */
+     width: 100%;
+ }
+
+  .logout-btn {
+      /* Button naturally flows below text when wrapped */
+      margin-top: 15px; /* Add space when wrapped */
+      /* Optionally align self differently if needed */
+      align-self: center; /* Center button when wrapped */
+  }
+}
+
+/* For smaller tablets */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 columns for stats */
+    }
+     .quick-grid {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns for quick actions */
+    }
+}
+
+
+/* For mobile phones */
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 20px; /* Less padding on small screens */
+  }
+
+  .welcome-banner {
+    padding: 25px;
+    justify-content: center; /* Center items when they stack */
+    text-align: center; /* Center text on mobile */
+  }
+
+   .banner-text-content {
+      width: 100%; /* Ensure text takes full width */
+      text-align: center; /* Center text */
+  }
+
+  .welcome-banner h1 {
+      font-size: 1.7rem;
+  }
+   .logout-btn {
+      width: auto; /* Let button size naturally */
+      padding: 10px 20px;
+      margin-left: auto; /* Center button when stacked */
+      margin-right: auto;
+      margin-top: 20px; /* More space when stacked */
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 stat columns */
+  }
+
+   .quick-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 quick action columns */
+  }
+
+  /* Stack workout details vertically */
+  .workout-grid {
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    gap: 10px;
+  }
+  /* Move calories display to the right, slightly overlapping */
+  .calories {
+      align-self: flex-end;
+      margin-top: -40px; /* Adjust vertical position */
+      margin-right: 10px; /* Add some space from the edge */
+  }
+  .card {
+      padding: 20px; /* Slightly less padding in cards */
+  }
+  .modal-details {
+      padding: 25px; /* Less padding in modal */
+  }
+}
+
+/* ===== Today's Reminders Section ===== */
+.reminders-card {
+  margin-top: 18px;
+}
+
+.reminders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reminder-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.reminder-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+
+.reminder-text {
+  flex: 1;
+  text-align: left;
+}
+
+.reminder-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.reminder-sub {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* color accents */
+.reminder-item.yellow .reminder-icon {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.reminder-item.green .reminder-icon {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.reminder-item.blue .reminder-icon {
+  background: #dbeafe;
+  color: #1d4ed8;
+}

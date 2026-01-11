@@ -1,0 +1,440 @@
+.home-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Section background */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight {
+  background: linear-gradient(to right, red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+/* Buttons */
+.hero-buttons {
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, red, orange);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  border: 2px solid white;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: black;
+}
+
+/* Card */
+.plan-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.plan-card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.plan-card p {
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.gender-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gender-options button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  color: white;
+}
+
+.gender-options .male {
+  background: rgba(0, 123, 255, 0.5);
+}
+
+.gender-options .male:hover {
+  background: rgba(0, 123, 255, 0.8);
+}
+
+.gender-options .female {
+  background: rgba(255, 20, 147, 0.5);
+}
+
+.gender-options .female:hover {
+  background: rgba(255, 20, 147, 0.8);
+}
+
+.gender-options .other {
+  background: rgba(128, 0, 128, 0.5);
+}
+
+.gender-options .other:hover {
+  background: rgba(128, 0, 128, 0.8);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
+}
+/* Section Background */
+.motivation {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #fef2f2, #fff7ed);
+  text-align: center;
+}
+
+.motivation .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Title */
+.motivation-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .motivation-title {
+    font-size: 36px;
+  }
+}
+
+/* White Quote Box */
+.motivation-box {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+}
+
+/* Quote Icon */
+.quote-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #f87171;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Quote Text */
+.quote-text {
+  font-size: 20px;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .quote-text {
+    font-size: 24px;
+  }
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dots span {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.dots span.active {
+  background: #ef4444;
+}
+
+/* Workout Playlists Section */
+.playlists {
+  padding: 80px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.playlists .title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .playlist-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.playlist-card {
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+.playlist-card .icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.playlist-card h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.playlist-card p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.playlist-button {
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Color themes */
+.playlist-card.red {
+  background: linear-gradient(135deg, #e63946, #d62828);
+}
+.playlist-card.red button {
+  background: white;
+  color: #e63946;
+}
+.playlist-card.red button:hover {
+  background: #f5f5f5;
+}
+
+.playlist-card.orange {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+.playlist-card.orange button {
+  background: white;
+  color: #f97316;
+}
+.playlist-card.orange button:hover {
+  background: #f5f5f5;
+}
+
+.playlist-card.purple {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+.playlist-card.purple button {
+  background: white;
+  color: #8b5cf6;
+}
+.playlist-card.purple button:hover {
+  background: #f5f5f5;
+}
+/* Why Choose Section */
+.why-choose {
+  padding: 80px 20px;
+  background: #f9fafb;
+  text-align: center;
+}
+
+.why-choose .title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+.why-grider {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
+
+@media (min-width: 768px) {
+  .why-grider {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .why-grider {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.why-card {
+  text-align: center;
+}
+
+.why-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+
+/* Gradient backgrounds for icons */
+.why-icon.red {
+  background: linear-gradient(to right, #ef4444, #f97316);
+}
+
+.why-icon.blue {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+}
+
+.why-icon.green {
+  background: linear-gradient(to right, #22c55e, #14b8a6);
+}
+
+.why-icon.purple {
+  background: linear-gradient(to right, #8b5cf6, #ec4899);
+}
+
+.why-card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.why-card p {
+  font-size: 15px;
+  color: #555;
+}
+.journey-btn {
+  padding: 14px 28px;
+  background: linear-gradient(to right, #ef4444, #f97316);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.journey-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(239, 68, 68, 0.3);
+}
+

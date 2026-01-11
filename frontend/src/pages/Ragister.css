@@ -1,0 +1,73 @@
+/* Container */
+.register-container {
+  max-width: 450px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+.register-container h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #1f2937;
+}
+
+/* Inputs & Selects */
+.register-container input,
+.register-container select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.register-container input:focus,
+.register-container select:focus {
+  border-color: #ef4444; /* Red-500 */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+}
+
+/* Button */
+.register-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #ef4444, #f97316);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.register-container button:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Login Link */
+.register-container p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.register-container span {
+  color: #ef4444;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.register-container span:hover {
+  text-decoration: underline;
+}

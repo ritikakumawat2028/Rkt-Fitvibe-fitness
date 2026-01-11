@@ -1,0 +1,37 @@
+/* Styles for the AdminPlans.jsx page wrapper.
+  This assumes your main admin layout provides the card styling.
+*/
+
+.admin-plans-page {
+  /* Using a class you already have is good practice */
+  /* If you don't have a global .card, uncomment these lines */
+  /* background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  */
+}
+
+.admin-page-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.admin-page-subtitle {
+  font-size: 1em;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.admin-page-loading,
+.admin-page-error {
+  font-size: 1.1em;
+  color: #777;
+  text-align: center;
+  padding: 50px;
+}

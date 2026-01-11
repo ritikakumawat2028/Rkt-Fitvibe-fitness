@@ -1,0 +1,542 @@
+/* About Section */
+.about-section {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("https://readdy.ai/api/search-image?query=Professional%20fitness%20center%20interior%2C%20modern%20gym%20equipment%2C%20natural%20lighting%2C%20spacious%20workout%20area%2C%20inspiring%20fitness%20environment%2C%20people%20training%20together%2C%20community%20atmosphere%2C%20high-end%20gym%20design%2C%20motivational%20setting%2C%20clean%20modern%20architecture&width=1920&height=1080&seq=about1&orientation=landscape://readdy.ai/api/search-image?query=Professional%20fitness%20center%20interior%2C%20modern%20gym%20equipment&width=1920&height=1080");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay */
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Content */
+.about-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+}
+
+/* Title */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.about-highlight {
+  background: linear-gradient(to right, #f56565, #ed8936);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Text */
+.about-text {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
+}
+
+/* Info boxes container */
+.about-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .about-boxes {
+    flex-direction: row;
+  }
+}
+
+/* Single box */
+.about-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  flex: 1;
+  text-align: center;
+}
+
+/* Box icon */
+.box-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Icon colors */
+.box-icon.red {
+  background: linear-gradient(to right, #f56565, #ed8936);
+}
+
+.box-icon.blue {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+}
+
+.box-icon.green {
+  background: linear-gradient(to right, #10b981, #14b8a6);
+}
+
+/* Box title */
+.box-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Box text */
+.box-text {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+}
+
+.purpose-section {
+  background-color: #fff;
+  padding: 5rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Mission & Vision */
+.mission-vision {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .mission-vision {
+    flex-direction: row;
+  }
+}
+
+.mv-card {
+  position: relative;
+  flex: 1;
+  min-height: 350px;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: white;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.mv-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.mv-content {
+  position: relative;
+  z-index: 10;
+}
+
+.mv-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.mv-icon.red { background: #ef4444; }
+.mv-icon.orange { background: #f97316; }
+
+.mv-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.mv-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Core Values */
+.core-values {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.core-values h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .values-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.value-card {
+  text-align: center;
+}
+
+.value-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.value-icon.red { background: #ef4444; }
+.value-icon.blue { background: #3b82f6; }
+.value-icon.green { background: #10b981; }
+.value-icon.purple { background: #8b5cf6; }
+
+.value-card h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Container */
+.facility-section {
+  padding: 5rem 1rem;
+  background-color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section */
+.facility-section {
+  padding: 5rem 1rem;
+  background-color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+.section-header p {
+  font-size: 1.2rem;
+  color: #4b5563;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Facility Grid */
+.facility-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .facility-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .facility-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Facility Card */
+.facility-card {
+  position: relative;
+  height: 16rem;
+  border-radius: 1rem;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.facility-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.facility-card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* Local Backgrounds */
+.bg-gym1 { background-image: url("../assests/str.jpg"); }
+.bg-gym2 { background-image: url("../assests/yoga.jpg"); }
+.bg-gym3 { background-image: url("../assests/yy.jpg"); }
+.bg-gym4 { background-image: url("../assests/gr.webp"); }
+.bg-gym5 { background-image: url("../assests/tf.png"); }
+.bg-gym6 { background-image: url("../assests/rec.jpg"); }
+
+/* Amenities */
+.amenities-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+.amenities-section h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .amenities-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.amenity-card {
+  text-align: center;
+}
+.amenity-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+.amenity-icon.red { background: #ef4444; }
+.amenity-icon.blue { background: #3b82f6; }
+.amenity-icon.green { background: #10b981; }
+.amenity-icon.purple { background: #8b5cf6; }
+
+/* ================= REVIEW SECTION ================= */
+.review-section {
+  background: linear-gradient(135deg, #f0f4f8, #ffffff);
+  padding: 60px 20px;
+  border-radius: 16px;
+  margin-top: 60px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.review-section h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.review-card {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 14px;
+  width: 280px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.review-card p {
+  font-style: italic;
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.review-card h4 {
+  text-align: right;
+  color: #0077cc;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* ================= ADD REVIEW FORM ================= */
+.add-review {
+  margin-top: 40px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-review h3 {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.star-rating button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 32px;
+  transition: transform 0.2s ease;
+}
+
+.star-rating button:hover {
+  transform: scale(1.2);
+}
+
+.star-rating .on {
+  color: #ffb400; /* gold */
+}
+
+.star-rating .off {
+  color: #ccc;
+}
+
+/* Textarea */
+.add-review textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+  resize: none;
+}
+
+.add-review textarea:focus {
+  border: 1px solid #0077cc;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 119, 204, 0.2);
+}
+
+/* Submit Button */
+.submit-btn {
+ 
+  background: linear-gradient(135deg,#ef4444, #f97316);
+  color: white;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+}
+
+/* Thank You Message */
+.thank-you {
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 15px;
+}

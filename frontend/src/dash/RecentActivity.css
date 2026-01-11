@@ -1,0 +1,25 @@
+/* src/admin/components/RecentActivity.css */
+
+:root { --grad: linear-gradient(135deg, #6c7bff, #8a2be2); --muted: #7a7f8c; --text: #2d2f36; }
+
+.recent-activity h3 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.recent-activity h3::before {
+  content: '';
+  width: 10px; height: 10px; border-radius: 50%; background: var(--grad);
+}
+
+.activity-list { display: flex; flex-direction: column; gap: 12px; }
+
+.activity-item { padding: 14px 16px; border: 1px solid #eef0f5; border-radius: 12px; background: #fff; transition: box-shadow .2s ease, transform .2s ease; }
+.activity-item:hover { box-shadow: 0 8px 22px rgba(17,24,39,0.06); transform: translateY(-1px); }
+
+.activity-type { margin: 0; font-weight: 600; color: var(--text); font-size: 15px; }
+.activity-details { font-size: 12px; color: var(--muted); margin-top: 6px; display: block; }

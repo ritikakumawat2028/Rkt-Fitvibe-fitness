@@ -1,0 +1,92 @@
+/* src/admin/pages/AdminDashboard.css */
+
+/* Define root variables for easy theming.
+  You can reuse these variables in your other CSS files.
+*/
+:root {
+  --admin-bg-color: #f0f2f5;
+  --admin-card-bg: #ffffff;
+  --admin-shadow-base: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --admin-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --admin-border-radius: 10px;
+  --admin-transition-speed: 0.3s;
+  --admin-font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Removed layout-specific variables as AdminLayout handles them */
+}
+
+/* All layout styles like .admin-dashboard-layout, .main-content-wrapper,
+  .sidebar-open, .sidebar-closed are REMOVED.
+  They are now in your AdminLayout.css file.
+*/
+
+.dashboard-content-area {
+  /* This class is now the wrapper in AdminDashboard.jsx */
+  /* We keep the padding and flex-grow */
+  padding: 30px; 
+  flex-grow: 1;
+}
+
+.dashboard-bottom-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* --- General Card Styling (reusable) --- */
+.card {
+  background-color: var(--admin-card-bg);
+  border-radius: var(--admin-border-radius);
+  box-shadow: var(--admin-shadow-base);
+  padding: 24px;
+  transition: transform var(--admin-transition-speed) ease,
+    box-shadow var(--admin-transition-speed) ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--admin-shadow-hover);
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 992px) {
+  .dashboard-bottom-row {
+    grid-template-columns: 1fr; /* Stack columns */
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content-area {
+    padding: 20px; /* Reduce padding on small screens */
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+/* The .sidebar-overlay styles are REMOVED.
+  They belong in your AdminLayout.css file.
+*/
+
+/* --- Sidebar Overlay for Mobile --- */
+/* This is used when the sidebar is open on a mobile device */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: none;
+  opacity: 0;
+  transition: opacity var(--admin-transition-speed) ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+}

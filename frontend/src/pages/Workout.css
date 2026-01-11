@@ -1,0 +1,328 @@
+/* ============================== 
+  Workout Page — Perfected CSS
+============================== */
+/* --- NOTE: @import is now in your global.css --- */
+
+.workout-container {
+  max-width: 1000px;
+  margin: 40px auto; /* Provides spacing from top/bottom */
+  padding: 40px 30px 50px 30px; /* More vertical padding */
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff; /* Sits on top of the grey body */
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* ---------- Header Section (Welcome Banner) ---------- */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: linear-gradient(135deg, #f9fff8, #f1fff0);
+  border-radius: 20px;
+  padding: 20px 25px;
+  border: 1px solid #e0f0e0;
+  margin-bottom: 40px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-grow: 1;
+  min-width: 250px;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: url("https://cdn-icons-png.flaticon.com/512/1077/1077012.png")
+    center/cover no-repeat;
+  border: 3px solid #46b82b;
+  box-shadow: 0 0 15px rgba(70, 184, 43, 0.3);
+  flex-shrink: 0;
+}
+.user-info > div { min-width: 0; }
+.highlight { color: #46b82b; font-weight: 600; }
+.header-section h2 { font-size: 1.4rem; color: #111; margin: 0; word-break: break-word; }
+.header-section p { color: #666; font-size: 0.95rem; margin: 0; }
+
+/* ---------- Progress Bar ---------- */
+.progress-container { width: 220px; text-align: center; margin-top: 15px; flex-shrink: 0; }
+.progress-bar { width: 100%; height: 12px; background: #e6e9ec; border-radius: 10px; overflow: hidden; margin-bottom: 5px; }
+.progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #8de94b, #46b82b); border-radius: 10px; transition: width 0.8s ease-in-out; }
+.progress-text { font-weight: 600; color: #333; font-size: 0.9rem; }
+
+/* --- Daily Tip Feature --- */
+.daily-tip-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #f0f8ff, #e6f8fb);
+  border: 1px solid #c3e0ee;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 15px rgba(70, 150, 184, 0.08);
+}
+.tip-icon { font-size: 2.5rem; }
+.tip-content h4 { margin: 0 0 5px 0; color: #12558a; font-weight: 600; }
+.tip-content p { margin: 0; color: #333; font-size: 0.95rem; line-height: 1.6; }
+
+/* ---------- Today's Workout ---------- */
+.today-section { margin-bottom: 50px; }
+.section-title { font-size: 24px; font-weight: 700; color: #1b1b1b; margin: 0 0 20px 0; }
+.today-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.today-card:hover { transform: scale(1.02); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); }
+.today-card img {
+  width: 100%;
+  height: 320px; /* Taller card */
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.8);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.today-card:hover img { transform: scale(1.05); filter: brightness(0.9); }
+
+.today-overlay {
+  position: absolute;
+  top: 0; left: 0; height: 100%; width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  background: linear-gradient( to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1) 60%, transparent );
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.today-overlay p { font-size: 1rem; color: #f0f0f0; font-weight: 500; margin: 0; }
+.today-overlay h2 { font-size: 24px; font-weight: 700; margin: 0; }
+
+/* --- Base Button Style --- */
+.start-btn, .small-btn, .end-btn, .done-btn {
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+/* Shine effect */
+.start-btn::before, .small-btn::before, .end-btn::before, .done-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient( 90deg, transparent, rgba(255, 255, 255, 0.4), transparent );
+  transform: skewX(-30deg);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+.start-btn:hover::before, .small-btn:hover::before, .end-btn:hover::before, .done-btn:hover::before { left: 150%; }
+
+/* --- Button Variants --- */
+.start-btn {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #5ad539, #46b82b);
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 15px;
+  box-shadow: 0 5px 20px rgba(90, 213, 57, 0.35);
+}
+.start-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #62e040, #4cbe32);
+  box-shadow: 0 8px 25px rgba(90, 213, 57, 0.5);
+}
+
+/* ---------- Popular Exercises ---------- */
+.popular-section { margin-bottom: 50px; }
+.popular-section h3 { font-size: 22px; font-weight: 700; margin: 0 0 20px 0; color: #1b1b1b; }
+.popular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 25px; }
+.popular-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e8e8e8; /* Subtle border */
+  transition: all 0.3s ease;
+}
+.popular-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.popular-card img {
+  width: 100%; height: 160px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+.popular-card:hover img { filter: brightness(1); }
+.card-content { padding: 20px; }
+.card-content h4 {
+  font-weight: 600; font-size: 1rem; margin: 0 0 6px 0; color: #222;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.card-content p { font-size: 0.9rem; color: #666; margin: 0 0 12px 0; }
+.small-btn {
+  background: linear-gradient(90deg, #5ad539, #46b82b);
+  color: #fff; padding: 8px 20px; font-weight: 500;
+}
+.small-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #62e040, #4cbe32);
+}
+.small-btn:disabled {
+  background: #d1d1d1;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.small-btn:disabled::before { display: none; }
+
+/* ---------- End Program ---------- */
+.end-program { text-align: center; margin-top: 50px; }
+.end-btn {
+  background: linear-gradient(90deg, #ff5858, #ff4040);
+  color: white; padding: 14px 35px; font-size: 16px;
+  box-shadow: 0 5px 20px rgba(255, 90, 90, 0.35);
+}
+.end-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #ff6b6b, #ff5252);
+  box-shadow: 0 8px 25px rgba(255, 90, 90, 0.5);
+}
+
+/* --- PERFECTED MODAL --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  overflow: hidden; /* Important for image radius */
+  max-height: 90vh; /* Prevent modal from being too tall */
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
+}
+
+/* --- MODAL IMAGE --- */
+.modal-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- MODAL CONTENT & EXERCISE LIST --- */
+.modal-details {
+  padding: 25px;
+  overflow-y: auto;
+  /* --- CUSTOM SCROLLBAR --- */
+  scrollbar-width: thin;
+  scrollbar-color: #46b82b #e0e0e0;
+}
+.modal-details::-webkit-scrollbar { width: 8px; }
+.modal-details::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+.modal-details::-webkit-scrollbar-thumb { background: #46b82b; border-radius: 10px; }
+.modal-details::-webkit-scrollbar-thumb:hover { background: #3da627; }
+
+.modal-details h2 { margin: 0 0 5px 0; font-size: 1.8rem; }
+.modal-stats { color: #555; font-weight: 500; margin-bottom: 15px; }
+.modal-description { font-size: 1rem; color: #555; line-height: 1.6; margin: 0 0 20px 0; }
+
+.exercise-list-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 25px 0 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.exercise-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px;
+  border-bottom: 1px solid #f4f4f4;
+}
+.exercise-item:last-child { border-bottom: none; }
+.exercise-name { font-weight: 500; color: #333; }
+.exercise-reps { font-weight: 500; color: #46b82b; }
+.exercise-item-none { color: #888; padding: 12px 5px; }
+
+.done-btn {
+  background: linear-gradient(90deg, #28a745, #218838);
+  color: white;
+  padding: 14px 30px; /* Bigger */
+  margin-top: 25px;
+  width: 100%; /* Full width */
+  font-size: 1rem;
+  box-shadow: 0 5px 20px rgba(40, 167, 69, 0.3);
+}
+.done-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #2ebf4e, #23993d);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .today-card img { height: 240px; }
+  .today-overlay { padding: 25px; }
+}
+
+@media (max-width: 600px) {
+  .header-section { flex-direction: column; align-items: flex-start; }
+  .progress-container { width: 100%; margin-top: 0; }
+  .daily-tip-section { flex-direction: column; text-align: center; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .workout-container {
+    margin: 0; padding: 30px 15px; border-radius: 0;
+  }
+  .header-section { padding: 20px; }
+  .user-info { flex-direction: column; align-items: center; text-align: center; width: 100%; min-width: unset; }
+  .header-section h2 { font-size: 1.2rem; }
+  .today-card img { height: 200px; }
+  .today-overlay { padding: 20px; }
+  .today-overlay h2 { font-size: 20px; }
+  .section-title, .popular-section h3 { font-size: 20px; }
+  
+  .modal-image { height: 160px; }
+  .modal-details { padding: 20px; }
+  .modal-details h2 { font-size: 1.5rem; }
+}

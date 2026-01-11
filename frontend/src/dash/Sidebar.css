@@ -1,0 +1,143 @@
+/* src/admin/components/Sidebar.css */
+
+.sidebar {
+  width: 250px; /* Default open width */
+  background: linear-gradient(180deg, #6c7bff, #8a2be2); /* Blue-purple gradient */
+  color: white;
+  padding: 20px 0;
+  position: fixed; /* Fixed position */
+  height: 100vh;
+  left: 0;
+  top: 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease, transform 0.3s ease;
+  z-index: 100; /* Ensure sidebar is above other content */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.closed {
+  width: 60px; /* Collapsed width */
+  transform: translateX(0); /* Ensure it stays visible */
+}
+
+/* Hide text when sidebar is closed */
+.sidebar.closed .sidebar-header span,
+.sidebar.closed .sidebar-nav span,
+.sidebar.closed .sidebar-category-title {
+  display: none;
+}
+
+/* Center icons when sidebar is closed */
+.sidebar.closed .sidebar-header {
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.sidebar.closed .sidebar-nav ul li a {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow when collapsed */
+}
+
+.sidebar-header svg {
+  color: #fff;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.95em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 0 25px 25px 0; /* Rounded right edge */
+  margin-right: 15px; /* Space from the right edge of the sidebar */
+}
+
+.sidebar-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.sidebar-nav a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 600;
+  box-shadow: inset 4px 0 0 rgba(255,255,255,0.9), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtle lift on hover */
+.sidebar-nav a:hover {
+  transform: translateX(2px);
+}
+
+.sidebar-nav a svg {
+  min-width: 20px; /* Ensure icon size is consistent */
+  color: currentColor; /* Use parent text color */
+}
+
+.sidebar-category-title {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8em;
+  padding: 15px 20px 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* --- Mobile / Tablet Responsiveness --- */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 250px;
+    transform: translateX(-100%); /* Hide sidebar off-screen by default */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.open {
+    transform: translateX(0%); /* Show sidebar when open */
+  }
+
+  /* Overlay for when sidebar is open on smaller screens */
+  .sidebar-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99; /* Below sidebar, above main content */
+  }
+
+  .sidebar.open + .sidebar-overlay {
+    display: block; /* Show overlay when sidebar is open */
+  }
+}

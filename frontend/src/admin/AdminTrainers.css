@@ -1,0 +1,146 @@
+.admin-trainers-page {
+  padding: 20px;
+}
+
+.trainers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.trainers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trainers-table th,
+.trainers-table td {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Trainer cell with avatar + name */
+.trainer-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trainer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.trainer-name {
+  font-weight: 500;
+}
+
+/* Make trainer cards slightly transparent and bluish (glassmorphism) */
+.admin-trainers-page .users-header-controls.card,
+.admin-trainers-page .users-table-container.card {
+  background: rgba(59, 130, 246, 0.08); /* light blue with transparency */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* Subtle hover state for trainer rows */
+.trainers-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.04);
+}
+
+.trainers-table th {
+  background: #fafafa;
+  font-weight: 600;
+}
+
+.trainer-actions button {
+  margin-right: 8px;
+  
+}
+
+.admin-form input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: min(520px, 92vw);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.control-button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.control-button:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.add-button {
+  background: #2563eb;
+  color: #fff;
+}
+
+.add-button:hover {
+  background: #1d4ed8;
+}
+
+.edit-button {
+  background: #22c55e;
+  color: #fff;
+}
+
+.edit-button:hover {
+  background: #16a34a;
+}
+
+.delete-button {
+  background: #ef4444;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background: #dc2626;
+}
+
+.error-message {
+  color: #b91c1c;
+}
