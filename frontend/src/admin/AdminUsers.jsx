@@ -1,6 +1,7 @@
 // src/admin/pages/AdminUsers.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Import axios for the public 'register' route
+import API_URL from '../config';
 
 // Import all necessary API functions
 import {
@@ -99,7 +100,7 @@ const AdminUsers = () => {
         // --- CREATE User (Add Mode) ---
         // We use the public /api/register route from your server.js
         // We use a separate axios call because it's not a protected /api/admin route
-        await axios.post('http://localhost:5000/api/register', userData);
+        await axios.post(`${API_URL}/api/register`, userData);
       }
       fetchUsers(); // Refresh the user list
       handleCloseModal(); // Close the modal

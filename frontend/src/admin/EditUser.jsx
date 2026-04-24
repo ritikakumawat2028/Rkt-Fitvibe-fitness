@@ -1,6 +1,7 @@
     import React, { useState, useEffect, useCallback } from 'react';
     import axios from 'axios';
     import { useParams, useNavigate } from 'react-router-dom';
+    import API_URL from '../config';
     import './admin.css'; // Import admin styles
 
     function EditUser() {
@@ -31,7 +32,7 @@
             return;
           }
           // *** IMPORTANT: Ensure backend runs on port 5000 ***
-          const res = await axios.get(`http://localhost:5000/api/admin/users/${userId}`, {
+          const res = await axios.get(`${API_URL}/api/admin/users/${userId}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
           // Set form data with fetched user details (excluding password)
@@ -89,7 +90,7 @@
         try {
           const token = localStorage.getItem('adminToken');
           // *** IMPORTANT: Ensure backend runs on port 5000 ***
-          await axios.put(`http://localhost:5000/api/admin/users/${userId}`, updatePayload, {
+          await axios.put(`${API_URL}/api/admin/users/${userId}`, updatePayload, {
             headers: { Authorization: `Bearer ${token}` },
           });
           setSuccess('User updated successfully!');

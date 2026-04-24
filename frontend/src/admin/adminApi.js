@@ -2,7 +2,7 @@ import axios from "axios";
 
 // ✅ Create Axios instance for admin API
 const ADMIN_API = axios.create({
-  baseURL: "http://localhost:5000/api/admin",
+  baseURL: process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api/admin` : "http://localhost:5000/api/admin",
   timeout: 10000, // (optional) prevents hanging requests
 });
 

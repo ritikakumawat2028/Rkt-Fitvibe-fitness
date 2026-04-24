@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../config";
 import "./Login.css";
 
 function Login({ setUser }) {
@@ -24,7 +25,7 @@ function Login({ setUser }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/login", {
+      const res = await fetch(`${API_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

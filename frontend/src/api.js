@@ -3,7 +3,7 @@
 
         // Set the base URL for non-admin API requests
         const API = axios.create({
-          baseURL: 'http://localhost:5000/api', // Your backend API base URL (excluding /admin)
+          baseURL: process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api` : 'http://localhost:5000/api', // Use env var if available
         });
 
         // Interceptor to automatically add the USER token to requests

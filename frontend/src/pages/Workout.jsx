@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../config";
 import "./Workout.css";
 
 /* --- UPDATED: SIMULATED WORKOUT DATABASE --- */
@@ -150,7 +151,7 @@ const Workout = () => {
     const loadEnrollment = async () => {
       // Try to load the active enrollment from the SERVER first
       try {
-        const res = await fetch("http://localhost:5000/api/users/enrollment", {
+        const res = await fetch(`${API_URL}/api/users/enrollment`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -237,7 +238,7 @@ const Workout = () => {
 
     try {
       // Tell the server that this workout is completed so data is persisted
-      const res = await fetch("http://localhost:5000/api/users/workouts/complete", {
+      const res = await fetch(`${API_URL}/api/users/workouts/complete`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../config";
 import "./Programs.css";
 
 // Import your local images (place them in src/assets/)
@@ -144,7 +145,7 @@ function Programs() {
 
     try {
       // 1) Fetch trainers so we can pick a suitable one for this program
-      const trainersRes = await fetch("http://localhost:5000/api/users/trainers", {
+      const trainersRes = await fetch(`${API_URL}/api/users/trainers`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -179,7 +180,7 @@ function Programs() {
       }
 
       // 2) Call backend enrollment API – this will also avoid duplicate enrollments
-      const enrollRes = await fetch("http://localhost:5000/api/users/enroll", {
+      const enrollRes = await fetch(`${API_URL}/api/users/enroll`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../config";
 import trainerBanner from "../assests/trainer.png"; 
 import priyaImg from "../assests/traniers/Priya.jpg";
 import  arjunImg from "../assests/traniers/Arjun.webp";
@@ -33,7 +34,7 @@ const Trainers = () => {
       return;
     }
     // Fetch available trainers for authenticated users
-    fetch("http://localhost:5000/api/users/trainers", {
+    fetch(`${API_URL}/api/users/trainers`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -59,7 +60,7 @@ const Trainers = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/users/enroll", {
+      const res = await fetch(`${API_URL}/api/users/enroll`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

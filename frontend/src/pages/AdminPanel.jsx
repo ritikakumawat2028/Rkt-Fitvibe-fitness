@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API_URL from "../config";
 
 function AdminPanel() {
   const [users, setUsers] = useState([]);
@@ -8,7 +9,7 @@ function AdminPanel() {
   // Fetch all users (admin-secured)
   const fetchUsers = () => {
     const adminToken = localStorage.getItem('adminToken');
-    fetch("http://localhost:5000/api/admin/users", {
+    fetch(`${API_URL}/api/admin/users`, {
       headers: { Authorization: `Bearer ${adminToken}` }
     })
       .then((res) => res.json())
@@ -24,7 +25,7 @@ function AdminPanel() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       const adminToken = localStorage.getItem('adminToken');
-      await fetch(`http://localhost:5000/api/admin/users/${id}`, {
+      await fetch(`${API_URL}/api/admin/users/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${adminToken}` }
       });
@@ -41,7 +42,7 @@ function AdminPanel() {
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     const adminToken = localStorage.getItem('adminToken');
-    await fetch(`http://localhost:5000/api/admin/users/${editingUser}`, {
+    await fetch(`${API_URL}/api/admin/users/${editingUser}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${adminToken}` },
       body: JSON.stringify(formData),
