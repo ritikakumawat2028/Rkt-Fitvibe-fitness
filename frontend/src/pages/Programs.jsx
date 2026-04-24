@@ -105,31 +105,9 @@ function Programs() {
     }
   };
 
-  // --- CORRECTION 3: Moved initializeWorkouts inside the component ---
-  const initializeWorkouts = (programName) => {
-    // Generate workout array based on selected program
-    switch (programName) {
-      case "Strength Training":
-        return [
-          { title: "Upper Body Workout", duration: 60, calories: 400, completed: false },
-          { title: "Lower Body Strength", duration: 60, calories: 350, completed: false },
-        ];
-      case "Yoga & Flexibility":
-        return [
-          { title: "Morning Yoga", duration: 60, calories: 200, completed: false },
-          { title: "Evening Flexibility", duration: 45, calories: 150, completed: false },
-        ];
-      case "HIIT Training":
-        return [
-          { title: "HIIT Cardio", duration: 30, calories: 300, completed: false },
-          { title: "HIIT Core", duration: 30, calories: 250, completed: false },
-        ];
-      default:
-        return [];
-    }
-  };
 
   // --- CORRECTION 2 (UPDATED): Persist enrollment on the SERVER instead of only localStorage ---
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
